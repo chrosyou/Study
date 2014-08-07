@@ -49,3 +49,5 @@ BOOL DeleteDirRecursion(LPCTSTR pSrcDir,BOOL bCheck);
 /* зЂвт#pragma comment(lib,"Version.lib")
 /************************************************************************/
 int GetFileVersion(_tstring& sVersion, _tstring sNamePath);
+
+

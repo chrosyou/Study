@@ -1,11 +1,13 @@
 
 #include "StudyHeader.h"
+#include "SignInfo.h"
 #include <iostream>
 using namespace std;
 int main()
 {
-	_tstring s;
-	GetFileVersion(s, _T("2.exe"));
-	cout<<"Hello";
+	DIGITALINFO info;
+	SignInfo test;
+	cout<<test.GetDigSign(_T("1.exe"), info);
+
 	return 0;
 }
