@@ -24,12 +24,18 @@
     <ClCompile Include="SignInfo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="PEFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StudyHeader.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="SignInfo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PEFile.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

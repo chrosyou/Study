@@ -78,11 +78,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="PEFile.cpp" />
     <ClCompile Include="SignInfo.cpp" />
     <ClCompile Include="StudyCpp.cpp" />
     <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PEFile.h" />
     <ClInclude Include="SignInfo.h" />
     <ClInclude Include="StudyHeader.h" />
   </ItemGroup>

@@ -9,18 +9,20 @@
 /*	 创建日期：2014.8.7
 /************************************************************************/
 
+#include "StudyHeader.h"
 #include <windows.h>
 #include <tchar.h>
 #include <string>
 #include <assert.h>
 
-#ifndef _tstring
 #ifdef UNICODE
-#define _tstring std::wstring
+#define VerifyEmbeddedSignature VerifyEmbeddedSignatureW
+#define GetDigSign GetDigSignW
 #else
-#define _tstring std::string
-#endif  //UNICODE
-#endif
+#define VerifyEmbeddedSignature VerifyEmbeddedSignatureA
+#define GetDigSign GetDigSignA
+#endif // UNICODE
+
 
 #define ERROR_SIGNINFO_SUCCESS					0   // 
 #define ERROR_SIGNINFO_CRYPTQUERYOBJECT			1	//CryptQueryObject函数出错
@@ -42,7 +44,7 @@ typedef struct _DIGITALINFO
 	_tstring sMoreInfo;
 	_tstring sIssureName;
 	_tstring sSubjectName;
-}DIGITALINFO,*PDIGITALINFO;
+}DIGITALINFO, *PDIGITALINFO;
 
 /************************************************************************/
 /*  作用：判断数字签名，获取相关信息 
@@ -56,12 +58,14 @@ public:
 
 	//判断数字签名是否有效
 	//有效则返回0，无效返回非0,对应WinVarifyTrust的返回值
-	LONG VerifyEmbeddedSignature(LPCWSTR pwszSourceFile);
+	LONG VerifyEmbeddedSignatureW(LPCWSTR pwszSourceFile);
+	LONG VerifyEmbeddedSignatureA(LPCSTR pszSourceFile);
 
 	//获得数字签名的详细信息
 	//返回0表示成功，相应信息在info里，
 	//返回非0，失败，info信息不可信
-	BOOL GetDigSign(LPCWSTR pwszSourceFile,DIGITALINFO &info);
+	BOOL GetDigSignW(LPCWSTR pwszSourceFile,DIGITALINFO &info);
+	BOOL GetDigSignA(LPCSTR pszSourceFile,DIGITALINFO &info);
 
 private:
 	_tstring sProgramName;

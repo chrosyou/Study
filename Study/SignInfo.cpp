@@ -28,7 +28,7 @@ SignInfo::SignInfo()
 
 SignInfo::~SignInfo(){}
 
-LONG SignInfo::VerifyEmbeddedSignature(LPCWSTR pwszSourceFile)
+LONG SignInfo::VerifyEmbeddedSignatureW(LPCWSTR pwszSourceFile)
 {
 	LONG lStatus;
 	//DWORD dwLastError;
@@ -66,7 +66,15 @@ LONG SignInfo::VerifyEmbeddedSignature(LPCWSTR pwszSourceFile)
 	return lStatus;
 }
 
-BOOL SignInfo::GetDigSign(LPCWSTR pwszSourceFile, DIGITALINFO &info)
+LONG SignInfo::VerifyEmbeddedSignatureA(LPCSTR pszSourceFile)
+{
+	std::string s = pszSourceFile;
+	std::wstring ws;
+	StringToWString(s, ws);
+	return VerifyEmbeddedSignatureW(ws.c_str());
+}
+
+BOOL SignInfo::GetDigSignW(LPCWSTR pwszSourceFile, DIGITALINFO &info)
 {
 	if (pwszSourceFile == NULL)
 	{
@@ -222,6 +230,14 @@ FREEHANDLE:
 	info.sPublishInfo= sPublishInfo;
 	info.sSubjectName= sSubjectName;
 	return bResult;
+}
+
+BOOL SignInfo::GetDigSignA(LPCSTR pszSourceFile, DIGITALINFO &info)
+{
+	std::string s = pszSourceFile;
+	std::wstring ws;
+	StringToWString(s, ws);
+	return GetDigSignW(ws.c_str(), info );
 }
 
 BOOL SignInfo::GetProgAndPublisherInfo(PCMSG_SIGNER_INFO pSignerInfo)
