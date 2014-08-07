@@ -15,7 +15,7 @@
 #include <wincrypt.h>
 
 #pragma comment(lib, "wintrust")	//	WinVarifyTrustÊý×ÖÇ©Ãû
-#pragma comment(lib, "crypt32.lib")  //CryptQueryObject
+#pragma comment(lib, "crypt32.lib")  //CryptQueryObject 
 
 SignInfo::SignInfo()
 {
