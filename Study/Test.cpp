@@ -7,7 +7,7 @@ int main()
 {
 	DIGITALINFO info;
 	SignInfo test;
-	cout<<test.GetDigSign(_T("1.exe"), info);
+	cout<<test.GetDigSign(_T("2.exe"), info);
 
 	return 0;
 }
