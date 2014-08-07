@@ -22,7 +22,7 @@
 #endif  //UNICODE
 #endif
 
-#define ERROR_SIGNINFO_SUCCESS					0   //
+#define ERROR_SIGNINFO_SUCCESS					0   // 
 #define ERROR_SIGNINFO_CRYPTQUERYOBJECT			1	//CryptQueryObject函数出错
 #define ERROR_SIGNINFO_CRYPTMSGGETPARAM_SIZE	2	//CryptMsgGetParam函数获得signer size出错
 #define ERROR_SIGNINFO_LOCALALLOC				3   //LocalAlloc函数分配内存失败
