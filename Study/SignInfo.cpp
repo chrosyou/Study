@@ -224,11 +224,22 @@ FREEHANDLE:
 	if (pSignerInfo != NULL) LocalFree(pSignerInfo);
 	if (hStore != NULL) CertCloseStore(hStore, 0);
 	if (hMsg != NULL)   CryptMsgClose(hMsg);
-	info.sIssureName = sIssureName;
+
+#ifdef UNICODE
+
 	info.sMoreInfo	 = sMoreInfo;
 	info.sProgramName= sProgramName;
 	info.sPublishInfo= sPublishInfo;
+	
+#else
+	WStringToString(sMoreInfo, info.sMoreInfo);
+	WStringToString(sProgramName, info.sProgramName);
+	WStringToString(sPublishInfo, info.sPublishInfo);
+#endif // UNICODE
+
+	info.sIssureName = sIssureName;
 	info.sSubjectName= sSubjectName;
+
 	return bResult;
 }
 

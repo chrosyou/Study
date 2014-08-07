@@ -68,9 +68,9 @@ public:
 	BOOL GetDigSignA(LPCSTR pszSourceFile,DIGITALINFO &info);
 
 private:
-	_tstring sProgramName;
-	_tstring sPublishInfo;
-	_tstring sMoreInfo;
+	std::wstring sProgramName;
+	std::wstring sPublishInfo;
+	std::wstring sMoreInfo;
 	_tstring sIssureName;
 	_tstring sSubjectName;
 
