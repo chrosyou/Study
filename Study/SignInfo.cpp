@@ -226,11 +226,9 @@ FREEHANDLE:
 	if (hMsg != NULL)   CryptMsgClose(hMsg);
 
 #ifdef UNICODE
-
 	info.sMoreInfo	 = sMoreInfo;
 	info.sProgramName= sProgramName;
 	info.sPublishInfo= sPublishInfo;
-	
 #else
 	WStringToString(sMoreInfo, info.sMoreInfo);
 	WStringToString(sProgramName, info.sProgramName);
