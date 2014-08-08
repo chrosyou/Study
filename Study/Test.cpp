@@ -6,7 +6,7 @@
 using namespace std;
 int main()
 {
-	//123
+	//1234
 	BOOL bResult = FALSE;
 	cout<<IsPEFile(_T("Study.exe")); 
 
