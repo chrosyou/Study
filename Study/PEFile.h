@@ -26,7 +26,7 @@
 #define ERROR_PE_CREATEFILEMAPPING	4  //CreateFileMapping函数失败
 #define ERROR_PE_MAPVIEWOFFILE		5  //MapViewOfFile函数失败
 #define ERROR_PE_NOTDOSHEADER		6  //不是dos头
-#define ERROR_PE_NOTNTHEADER		6  //不是NT头
+#define ERROR_PE_NOTNTHEADER		7  //不是NT头
 
 //获得DOS头部
 LPVOID GetDosHeader(LPVOID lpFile);
