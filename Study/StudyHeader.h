@@ -15,6 +15,7 @@
 #include <windows.h>
 #include <tchar.h>
 #include <string>
+#include <shlwapi.h>  //参数解析
 
 #ifdef UNICODE
 #define _tstring std::wstring
@@ -50,4 +51,13 @@ BOOL DeleteDirRecursion(LPCTSTR pSrcDir,BOOL bCheck);
 /************************************************************************/
 int GetFileVersion(_tstring& sVersion, _tstring sNamePath);
 
+/************************************************************************/
+/* 作用：判断文件或路径是否存在                                         */
+/************************************************************************/
+BOOL DoesFileOrDirExistW(LPCTSTR path);
+
+/************************************************************************/
+/* 参数解析 
+/************************************************************************/
+void ParseCmdLine(LPTSTR lpCmdLine);
 

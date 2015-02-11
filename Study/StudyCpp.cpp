@@ -11,6 +11,8 @@
 
 #include "StudyHeader.h"
 
+#pragma comment(lib, "shlwapi.lib")
+
 //将A字符集转化到宽字符集
 BOOL StringToWString(const std::string &str, std::wstring &wstr)
 {    
@@ -134,4 +136,29 @@ int GetFileVersion(_tstring &sVersion, _tstring sNamePath)
 		sVersion = _T("1.0.0.-1");
 	}
 	return 0;
+}
+
+BOOL DoesFileOrDirExistW(LPCTSTR path)
+{
+	WIN32_FIND_DATA fd;
+	HANDLE handle = NULL;
+	handle = FindFirstFile(path,&fd);
+	if (handle == INVALID_HANDLE_VALUE)
+		return false;
+	FindClose(handle);
+	return true;
+}
+
+void ParseCmdLine(LPTSTR lpCmdLine)
+{
+	int num_args = 0;
+	_TCHAR** args = CommandLineToArgvW(lpCmdLine, &num_args);
+
+	_tstring sFilePath;
+	for (int i = 0; i < num_args; i++)
+	{
+		sFilePath = args[i];
+	}
+
+	LocalFree( args );
 }
